@@ -1,0 +1,12 @@
+@model Vaccination
+@{ ViewData["Title"] = "Add vaccination"; }
+<div class="form-card"><h2>Add vaccination record 💉</h2>
+@if (((Microsoft.AspNetCore.Mvc.Rendering.SelectList)ViewBag.PetId).Count() == 0) { <div class="alert alert-info">Please <a asp-controller="Pets" asp-action="Create">add a pet profile</a> first.</div> }
+<form asp-action="Create" method="post"><div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="mb-3"><label asp-for="PetId" class="form-label">Pet</label><select asp-for="PetId" asp-items="ViewBag.PetId" class="form-select"><option value="">Choose your pet</option></select><span asp-validation-for="PetId" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="VaccineName" class="form-label">Vaccine name</label><input asp-for="VaccineName" class="form-control" /><span asp-validation-for="VaccineName" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="GivenOn" class="form-label">Date given</label><input asp-for="GivenOn" class="form-control" type="date" /><span asp-validation-for="GivenOn" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="NextDueDate" class="form-label">Next due date (optional)</label><input asp-for="NextDueDate" class="form-control" type="date" /></div>
+<div class="mb-3"><label asp-for="Notes" class="form-label"></label><textarea asp-for="Notes" class="form-control" rows="2"></textarea></div>
+<button class="btn btn-primary">Save record</button> <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a></form></div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

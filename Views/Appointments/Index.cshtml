@@ -1,0 +1,5 @@
+@model IEnumerable<Appointment>
+@{ ViewData["Title"] = "Appointments"; }
+<div class="d-flex justify-content-between align-items-center mb-3"><div><h2>Vet appointments 🩺</h2><p class="text-secondary mb-0">Create and review appointment requests.</p></div><a asp-action="Create" class="btn btn-primary">＋ Book appointment</a></div>
+@if (!Model.Any()) { <div class="empty-state"><div class="display-4">📅</div><h4>No appointments yet</h4><p>Book a visit when your pet needs care.</p></div> }
+else { <div class="table-responsive bg-white rounded-4 shadow-sm"><table class="table align-middle mb-0"><thead><tr><th>Pet</th><th>Date & time</th><th>Reason</th><th>Status</th></tr></thead><tbody>@foreach (var a in Model) { <tr><td>@a.Pet?.Name</td><td>@a.AppointmentDate.ToString("dd MMM yyyy, hh:mm tt")</td><td>@a.Reason</td><td><span class="badge text-bg-warning">@a.Status</span></td></tr> }</tbody></table></div> }

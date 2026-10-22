@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Home";
+}
+<section class="hero rounded-4 p-4 p-md-5 mb-4">
+  <div class="row align-items-center g-4">
+    <div class="col-lg-7">
+      <span class="pill">CARE • TRACK • THRIVE</span>
+      <h1 class="display-5 fw-bold mt-3">Every paw deserves <span class="accent">better care.</span></h1>
+      <p class="lead mt-3">One friendly place to manage your pet profiles, vet appointments and vaccination records.</p>
+      <div class="d-flex flex-wrap gap-2 mt-4">
+        @if (User.Identity?.IsAuthenticated == true) {
+          <a class="btn btn-primary btn-lg" asp-controller="Pets" asp-action="Create">＋ Add your pet</a>
+          <a class="btn btn-outline-primary btn-lg" asp-controller="Appointments" asp-action="Create">Book appointment</a>
+        } else {
+          <a class="btn btn-primary btn-lg" asp-controller="Account" asp-action="Register">Get started</a>
+          <a class="btn btn-outline-primary btn-lg" asp-controller="Account" asp-action="Login">I have an account</a>
+        }
+      </div>
+    </div>
+    <div class="col-lg-5 text-center"><div class="pet-illustration">🐶 🐱<div class="small mt-2">Happy pets, healthier lives</div></div></div>
+  </div>
+</section>
+<div class="row g-3 mb-4">
+  <div class="col-md-4"><div class="stat-card"><div class="stat-icon">🐾</div><div class="text-secondary">Pet profiles in system</div><div class="stat-number">@ViewBag.PetCount</div></div></div>
+  <div class="col-md-4"><div class="stat-card"><div class="stat-icon">🩺</div><div class="text-secondary">Appointments</div><div class="stat-number">@ViewBag.AppointmentCount</div></div></div>
+  <div class="col-md-4"><div class="stat-card"><div class="stat-icon">💉</div><div class="text-secondary">Vaccination records</div><div class="stat-number">@ViewBag.VaccineCount</div></div></div>
+</div>
+<div class="row g-3">
+  <div class="col-md-4"><div class="feature-card"><h5>🐕 Pet profiles</h5><p>Store your pet's name, species, breed, age and notes.</p></div></div>
+  <div class="col-md-4"><div class="feature-card"><h5>📅 Vet appointments</h5><p>Request a visit and keep appointment information organized.</p></div></div>
+  <div class="col-md-4"><div class="feature-card"><h5>💗 Health history</h5><p>Record vaccines and review upcoming due dates.</p></div></div>
+</div>
+<div class="alert alert-info mt-4 mb-0"><strong>Health note:</strong> This student project stores records for organization only; it does not diagnose illness or replace a veterinarian.</div>
