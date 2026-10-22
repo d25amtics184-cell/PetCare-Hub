@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PetCare Hub — Smart Pet Care and Wellness Management System
 
 A student-friendly full-stack ASP.NET Core MVC project using C#, Entity Framework Core, SQL Server, HTML, CSS, Bootstrap and JavaScript.
@@ -55,3 +56,7 @@ For a different SQL Server instance, change `DefaultConnection` to your server n
 - The dashboard counts are system-wide totals for demonstration; personal pet and medical records are filtered by the logged-in user.
 - There is no separate admin dashboard/role seeded in this starter version.
 - Do not use this student demo as a medical diagnostic tool.
+=======
+# PetCare-Hub
+Smart Pet Care and Wellness Management System using ASP.NET Core and SQLite
+>>>>>>> 157bcc6e0570e72838b67c84ed1244206b8c5214
